@@ -26,12 +26,14 @@ RUN pacman -Scc --noconfirm &&\
     rm -rf /var/cache/pacman/pkg/* &&\
     userdel yay
 
-FROM cleanup
+FROM cleanup AS nvim_config
 COPY nvim_config /etc/xdg/nvim/
 WORKDIR /etc/xdg/nvim
 RUN mkdir -p /etc/xdg/nvim
 WORKDIR /etc/xdg/nvim
-#RUN ln -s ./init.vim ./sysinit.vim &&\
 RUN mkdir ./autoload &&\
     curl -fLo ./autoload/plug.vim --create-dirs \
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+FROM nvim_config AS ranger_config
+COPY ranger_config /etc/ranger

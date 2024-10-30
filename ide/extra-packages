@@ -4,6 +4,7 @@ debugedit
 fakeroot
 neovim
 ranger
+trash-cli
 vscode-html-languageserver
 vscode-json-languageserver
 typescript-language-server
