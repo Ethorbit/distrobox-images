@@ -3,6 +3,7 @@ git
 debugedit
 fakeroot
 neovim
+xclip
 ranger
 trash-cli
 vscode-html-languageserver
